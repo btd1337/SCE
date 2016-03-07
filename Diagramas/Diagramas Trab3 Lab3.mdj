@@ -231,30 +231,6 @@
 											"subViews": [
 												{
 													"_type": "ERDColumnView",
-													"_id": "AAAAAAFTRH8cFk4UGh8=",
-													"_parent": {
-														"$ref": "AAAAAAFTRH75/04IqdA="
-													},
-													"model": {
-														"$ref": "AAAAAAFTRH8b0U4RzrU="
-													},
-													"visible": true,
-													"enabled": true,
-													"lineColor": "#000000",
-													"fillColor": "#ffffff",
-													"fontColor": "#000000",
-													"font": "Source Sans Pro;14;0",
-													"showShadow": true,
-													"containerChangeable": false,
-													"containerExtending": false,
-													"left": 13,
-													"top": 317,
-													"width": 231,
-													"height": 14,
-													"autoResize": false
-												},
-												{
-													"_type": "ERDColumnView",
 													"_id": "AAAAAAFTRH9sdk4bmPo=",
 													"_parent": {
 														"$ref": "AAAAAAFTRH75/04IqdA="
@@ -272,7 +248,7 @@
 													"containerChangeable": false,
 													"containerExtending": false,
 													"left": 13,
-													"top": 333,
+													"top": 317,
 													"width": 231,
 													"height": 14,
 													"autoResize": false
@@ -296,7 +272,7 @@
 													"containerChangeable": false,
 													"containerExtending": false,
 													"left": 13,
-													"top": 349,
+													"top": 333,
 													"width": 231,
 													"height": 14,
 													"autoResize": false
@@ -314,7 +290,7 @@
 											"left": 8,
 											"top": 312,
 											"width": 241,
-											"height": 56,
+											"height": 40,
 											"autoResize": false
 										}
 									],
@@ -386,30 +362,6 @@
 											"subViews": [
 												{
 													"_type": "ERDColumnView",
-													"_id": "AAAAAAFTRIUIo05D4Ks=",
-													"_parent": {
-														"$ref": "AAAAAAFTRITt3k43dXw="
-													},
-													"model": {
-														"$ref": "AAAAAAFTRIUIWE5AtM4="
-													},
-													"visible": true,
-													"enabled": true,
-													"lineColor": "#000000",
-													"fillColor": "#ffffff",
-													"fontColor": "#000000",
-													"font": "Source Sans Pro;14;0",
-													"showShadow": true,
-													"containerChangeable": false,
-													"containerExtending": false,
-													"left": 485,
-													"top": 317,
-													"width": 211,
-													"height": 14,
-													"autoResize": false
-												},
-												{
-													"_type": "ERDColumnView",
 													"_id": "AAAAAAFTRIZY105Nyp0=",
 													"_parent": {
 														"$ref": "AAAAAAFTRITt3k43dXw="
@@ -427,7 +379,7 @@
 													"containerChangeable": false,
 													"containerExtending": false,
 													"left": 485,
-													"top": 333,
+													"top": 317,
 													"width": 211,
 													"height": 14,
 													"autoResize": false
@@ -451,7 +403,7 @@
 													"containerChangeable": false,
 													"containerExtending": false,
 													"left": 485,
-													"top": 349,
+													"top": 333,
 													"width": 211,
 													"height": 14,
 													"autoResize": false
@@ -469,7 +421,7 @@
 											"left": 480,
 											"top": 312,
 											"width": 221,
-											"height": 56,
+											"height": 40,
 											"autoResize": false
 										}
 									],
@@ -851,20 +803,6 @@
 							"columns": [
 								{
 									"_type": "ERDColumn",
-									"_id": "AAAAAAFTRH8b0U4RzrU=",
-									"_parent": {
-										"$ref": "AAAAAAFTRH75/U4EI5Q="
-									},
-									"name": "idProduto",
-									"type": "INTEGER",
-									"length": 0,
-									"primaryKey": true,
-									"foreignKey": false,
-									"nullable": true,
-									"unique": false
-								},
-								{
-									"_type": "ERDColumn",
 									"_id": "AAAAAAFTRH9sLE4Yj60=",
 									"_parent": {
 										"$ref": "AAAAAAFTRH75/U4EI5Q="
@@ -933,20 +871,6 @@
 								}
 							],
 							"columns": [
-								{
-									"_type": "ERDColumn",
-									"_id": "AAAAAAFTRIUIWE5AtM4=",
-									"_parent": {
-										"$ref": "AAAAAAFTRITt3E4zbp0="
-									},
-									"name": "idFilial",
-									"type": "int",
-									"length": 0,
-									"primaryKey": true,
-									"foreignKey": false,
-									"nullable": true,
-									"unique": false
-								},
 								{
 									"_type": "ERDColumn",
 									"_id": "AAAAAAFTRIZYmk5KeKU=",
@@ -5146,7 +5070,7 @@
 													"height": 14,
 													"autoResize": false,
 													"underline": false,
-													"text": "+exibir(operacao: EnumOperacao, entidade: EnumOperacao)",
+													"text": "+exibir(operacao: EnumOperacao, entidade: EnumEntidade)",
 													"horizontalAlignment": 0,
 													"verticalAlignment": 5
 												},
@@ -5174,7 +5098,7 @@
 													"height": 14,
 													"autoResize": false,
 													"underline": false,
-													"text": "+exibir(operacao: EnumOperacao, entidade: EnumOperacao, nomeFilial: String)",
+													"text": "+exibir(operacao: EnumOperacao, entidade: EnumEntidade, nomeFilial: String)",
 													"horizontalAlignment": 0,
 													"verticalAlignment": 5
 												},
@@ -5551,7 +5475,7 @@
 											"visibility": "public",
 											"isStatic": false,
 											"isLeaf": false,
-											"type": "EnumOperacao",
+											"type": "EnumEntidade",
 											"isReadOnly": false,
 											"isOrdered": false,
 											"isUnique": false,
@@ -5599,7 +5523,7 @@
 											"visibility": "public",
 											"isStatic": false,
 											"isLeaf": false,
-											"type": "EnumOperacao",
+											"type": "EnumEntidade",
 											"isReadOnly": false,
 											"isOrdered": false,
 											"isUnique": false,
@@ -10994,9 +10918,9 @@
 													"showShadow": true,
 													"containerChangeable": false,
 													"containerExtending": false,
-													"left": 313,
+													"left": 315,
 													"top": 1150,
-													"width": 484,
+													"width": 480,
 													"height": 14,
 													"autoResize": false,
 													"alpha": 0.1294097026305642,
@@ -11006,7 +10930,7 @@
 													},
 													"edgePosition": 1,
 													"underline": false,
-													"text": "17 : exibir(operacao: EnumOperacao, entidade: EnumOperacao, nomeFilial: String)",
+													"text": "17 : exibir(operacao: EnumOperacao, entidade: EnumEntidade, nomeFilial: String)",
 													"horizontalAlignment": 2,
 													"verticalAlignment": 5
 												},

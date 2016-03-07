@@ -2,7 +2,6 @@ package model.entity;
 
 public class Produto {
 
-	private int idProduto;
 	private String nomeProduto;
 	private String descricaoProduto;
 
@@ -25,8 +24,5 @@ public class Produto {
 		this.descricaoProduto = descricaoProduto;
 	}
 
-	public int getIdProduto() {
-		return idProduto;
-	}
 
 }
