@@ -47,16 +47,30 @@ public class Filial {
 		// TODO implement here
 	}
 
-	public static void updateFilial(int idFilial, String nomeFilial, String descFilial) {
-		// TODO implement here
-	}
-
 	public static void getFiliais(String nomeFilial) {
 		// TODO implement here
 	}
 
 	public static void desativaFilial(Filial filialOrigem, Filial filialDestino) {
 		// TODO implement here
+	}
+
+	public static String getDescricaoFilial(String nomeFilial) {
+		return FilialDAO.getDescricaoFilial(nomeFilial);
+	}
+
+	public static void updateFilial(String elementoAlterado, Filial filial) {
+		FilialDAO.updateFilial(elementoAlterado ,filial);
+		
+	}
+
+	public static boolean isEstoqueVazio(String nomeFilial) {
+		return FilialDAO.isEstoqueVazio(nomeFilial);
+	}
+
+	public static void desativaFilial(String nomeFilial) {
+		FilialDAO.desativaFilial(nomeFilial);
+		
 	}
 
 }

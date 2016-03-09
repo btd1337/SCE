@@ -17,7 +17,7 @@ import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
-public class TelaGerenciamentoFilial extends JFrame {
+public class TelaPrincipal extends JFrame {
 
 	private JPanel contentPane;
 	private JTable tableProdutosFilial;
@@ -34,7 +34,7 @@ public class TelaGerenciamentoFilial extends JFrame {
 			@Override
 			public void run() {
 				try {
-					TelaGerenciamentoFilial frame = new TelaGerenciamentoFilial();
+					TelaPrincipal frame = new TelaPrincipal();
 					frame.setVisible(true);
 					frame.setLocationRelativeTo(null);// centraliza na tela
 				} catch (Exception e) {
@@ -48,12 +48,13 @@ public class TelaGerenciamentoFilial extends JFrame {
 	 * Create the frame.
 	 */
 
-	public TelaGerenciamentoFilial() {
+	public TelaPrincipal() {
 
 		setTitle("SCE");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 650, 550);
+		
 
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
@@ -94,20 +95,32 @@ public class TelaGerenciamentoFilial extends JFrame {
 		JDesktopPane deskPrincipal = new JDesktopPane();
 		deskPrincipal.setBounds(133, 40, 500, 450);
 		contentPane.add(deskPrincipal);
+		
+		// inicia na tela Filial
+		telaFilial = new TelaFilial();
+		deskPrincipal.add(telaFilial);
+		telaFilial.setLocation(0, 0);
+		telaFilial.setVisible(true);
+
 
 		JMenuItem mntmFilial = new JMenuItem("Filial");
 		mntmFilial.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (!telaFilial.isVisible()) {
+					
+					telaFilial = new TelaFilial();
 					deskPrincipal.add(telaFilial);
 					telaFilial.setLocation(0, 0);
-
-					telaProdutos.setVisible(false);
-					telaEstoque.setVisible(false);
 					telaFilial.setVisible(true);
+					
+					if(telaEstoque != null) {
+						deskPrincipal.remove(telaEstoque);
+					}
+					if(telaProdutos != null) {
+						deskPrincipal.remove(telaProdutos);
+					}
 
-				}
+				
 			}
 		});
 		mntmFilial.setBounds(8, 40, 89, 23);
@@ -119,14 +132,19 @@ public class TelaGerenciamentoFilial extends JFrame {
 		mntmEstoque.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (!telaEstoque.isVisible()) {
+				
+					telaEstoque = new TelaEstoque();
 					deskPrincipal.add(telaEstoque);
 					telaEstoque.setLocation(0, 0);
-
-					telaFilial.setVisible(false);
-					telaProdutos.setVisible(false);
 					telaEstoque.setVisible(true);
-				}
+					
+					if(telaFilial != null) {
+						deskPrincipal.remove(telaFilial);
+					}
+					if(telaProdutos != null) {
+						deskPrincipal.remove(telaProdutos);
+					}
+				
 			}
 		});
 		mntmEstoque.setBounds(8, 75, 89, 23);
@@ -137,28 +155,25 @@ public class TelaGerenciamentoFilial extends JFrame {
 		mtmnProdutos.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (!telaProdutos.isVisible()) {
-					deskPrincipal.add(telaProdutos);
-					telaProdutos.setLocation(0, 0);
-
-					telaFilial.setVisible(false);
-					telaEstoque.setVisible(false);
-					telaProdutos.setVisible(true);
-
+				
+				telaProdutos = new TelaProdutos();
+				
+				deskPrincipal.add(telaProdutos);
+				telaProdutos.setLocation(0, 0);
+				telaProdutos.setVisible(true);
+					
+				if(telaEstoque != null) {
+					deskPrincipal.remove(telaEstoque);
 				}
+				if(telaFilial != null) {
+					deskPrincipal.remove(telaFilial);
+				}
+				
 			}
 		});
 		mtmnProdutos.setFont(new Font("DejaVu Sans", Font.PLAIN, 16));
 		mtmnProdutos.setBounds(8, 110, 89, 23);
 		panelMenus.add(mtmnProdutos);
-		
-		// inicia as telas auxiliares
-		telaFilial = new TelaFilial();
-		telaFilial.setVisible(true);
-		telaEstoque = new TelaEstoque();
-		telaEstoque.setVisible(false);
-		telaProdutos = new TelaProdutos();
-		telaProdutos.setVisible(false);
 
 	}
 }

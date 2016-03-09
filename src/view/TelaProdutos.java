@@ -4,7 +4,6 @@ import java.awt.Font;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.SQLException;
 
 import javax.swing.JButton;
 import javax.swing.JInternalFrame;
@@ -13,10 +12,12 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 
-import model.entity.ResultSetTableModel;
+import model.DAO.ProdutoDAO;
+import model.enuns.EnumEntidade;
+import model.enuns.EnumOperacao;
 
 public class TelaProdutos extends JInternalFrame {
-	private JTable table;
+	private static JTable table;
 
 	/**
 	 * Create the frame.
@@ -37,16 +38,19 @@ public class TelaProdutos extends JInternalFrame {
 		getContentPane().add(scrollPane);
 		
 		table = new JTable();
-		try {
-			table.setModel(new ResultSetTableModel("select nomeProduto,descricaoProduto from produto"));
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		ProdutoDAO.updateTabelaProdutos();
+		
 		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		scrollPane.setViewportView(table);
 		
 		JButton btnAdicionar = new JButton("Adicionar");
+		btnAdicionar.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				TelaOperacoes telaOperacoes = new TelaOperacoes(EnumOperacao.ADD, EnumEntidade.PRODUTO,"");
+				telaOperacoes.setLocationRelativeTo(null);
+			}
+		});
 		btnAdicionar.setBounds(364, 386, 100, 27);
 		getContentPane().add(btnAdicionar);
 		
@@ -54,6 +58,7 @@ public class TelaProdutos extends JInternalFrame {
 		btnEditar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				
 			}
 		});
 		btnEditar.setBounds(252, 386, 100, 27);
@@ -63,5 +68,9 @@ public class TelaProdutos extends JInternalFrame {
 		btnRemover.setBounds(140, 386, 100, 27);
 		getContentPane().add(btnRemover);
 
+	}
+	
+	public static JTable getTable() {
+		return table;
 	}
 }

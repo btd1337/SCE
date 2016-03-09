@@ -26,7 +26,7 @@ public class TelaOperacoes extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public TelaOperacoes(EnumOperacao enumOperacao, EnumEntidade enumEntidade) {
+	public TelaOperacoes(EnumOperacao enumOperacao, EnumEntidade enumEntidade, String elementoAlterado) {
 
 		String tituloJanela = null;
 
@@ -99,9 +99,11 @@ public class TelaOperacoes extends JDialog {
 						}
 						case UPDATE:
 							if (enumEntidade == EnumEntidade.FILIAL) {
-								GerenciaFilialController.updateFilial(txtNome.getText(), txtDescricao.getText());
+								GerenciaFilialController.updateFilial(elementoAlterado,txtNome.getText(), txtDescricao.getText());
+								dispose();
 							} else if (enumEntidade == EnumEntidade.PRODUTO) {
-								GerenciaFilialController.addProduto(txtNome.getText(),txtDescricao.getText());
+								//TODO criar método de editar o produto
+								//GerenciaProdutoController.
 							}
 							break;
 						case DESATIVA:

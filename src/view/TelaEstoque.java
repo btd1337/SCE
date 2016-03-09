@@ -11,10 +11,11 @@ import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
+import model.DAO.EstoqueDAO;
 import model.entity.ResultSetTableModel;
 
 public class TelaEstoque extends JInternalFrame {
-	private JTable table;
+	private static JTable table;
 
 	/**
 	 * Create the frame.
@@ -33,13 +34,9 @@ public class TelaEstoque extends JInternalFrame {
 		scrollPane.setBounds(53, 44, 375, 285);
 		getContentPane().add(scrollPane);
 		
-		table = new JTable();
-		try {
-			table.setModel(new ResultSetTableModel("select filial,produto,qtde from estoque"));
-		} catch (SQLException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+		table = new JTable();		
+		EstoqueDAO.updateTabelaListarPorTotal();
+		
 		scrollPane.setViewportView(table);
 		
 		JButton btnNewButton = new JButton("Listar Por Total");
@@ -67,4 +64,10 @@ public class TelaEstoque extends JInternalFrame {
 		getContentPane().add(btnListarPorFilial);
 
 	}
+
+	public static JTable getTable() {
+		return table;
+	}
+	
+	
 }
